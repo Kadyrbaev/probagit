@@ -15,6 +15,7 @@ function App() {
 
   return (
     <div className="App">
+      Sadyr
       <input onChange={(e)=>setName(e.target.value)}></input>
         <div style={{backgroundColor:todos,width:'200px',height:'200px',border:'1px solid black'}}></div>
     </div>
