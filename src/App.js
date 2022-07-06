@@ -1,23 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { colRed } from './store/slice/cartSlice';
 
 function App() {
+  const[name,setName] = useState('')
+  const dispatch = useDispatch()
+  const {todos} = useSelector(state=>state.svet)
+
+
+  useEffect(()=>{
+    dispatch(colRed(name))
+  },[name])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <input onChange={(e)=>setName(e.target.value)}></input>
+        <div style={{backgroundColor:todos,width:'200px',height:'200px',border:'1px solid black'}}></div>
     </div>
   );
 }
